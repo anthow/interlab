@@ -28,7 +28,7 @@
     "gatsby-plugin-sharp": "^5.2.0",
     "gatsby-plugin-sitemap": "^6.2.0",
     "gatsby-source-contentful": "^8.2.0",
-    "gatsby-source-datocms": "^4.0.5",
+    "gatsby-source-datocms": "^5.0.4",
     "gatsby-source-filesystem": "^5.2.0",
     "gatsby-transformer-remark": "^6.2.0",
     "gatsby-transformer-sharp": "^5.2.0",
