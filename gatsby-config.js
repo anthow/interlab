@@ -4,14 +4,36 @@
 module.exports = {
   siteMetadata: {
     title: `interlab`,
-    siteUrl: `https://www.yourdomain.tld`
+    description: `interlab`,
+    author: `interlab`,
   },
-  plugins: [{
+  plugins: [
+    {
     resolve: 'gatsby-source-datocms',
     options: {
       "apiToken": "70922149b5b6ab9f2cbf4f2a23171a"
     }
-  }, "gatsby-plugin-image", "gatsby-plugin-sharp", "gatsby-transformer-sharp", "gatsby-plugin-postcss", "gatsby-plugin-sitemap", {
+  },
+  {
+    resolve: `gatsby-plugin-google-fonts`,
+    options: {
+      fonts: [
+        `Oxygen`,
+        `Roboto` // you can also specify font weights and styles
+      ],
+      display: 'swap'
+    }
+  },
+
+  {
+    resolve: `gatsby-source-contentful`,
+    options: {
+      "accessToken": "p80WLxedAVZy48yZ_h7yEnxJYzxlzI-y-tBiKiUERlc",
+      "spaceId": "t0kynlkq1wsw"
+    }
+  },
+  
+  "gatsby-plugin-image", "gatsby-plugin-sharp", "gatsby-transformer-sharp", "gatsby-plugin-postcss", "gatsby-plugin-sitemap", {
     resolve: 'gatsby-plugin-manifest',
     options: {
       "icon": "src/images/icon.png"
