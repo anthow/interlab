@@ -6,7 +6,7 @@ module.exports = {
     title: `interlab`,
     description: `interlab`,
     author: `interlab`,
-    siteUrl:'interra.be'
+    siteUrl:'https://www.interra-asbl.be/'
   },
   plugins: [
     {
