@@ -94,7 +94,7 @@ const Experts = ({ data }) => (
                 </svg>{" "}
               </a>
               <a
-                href={data.contentfulExperts.instagram}
+                href={data.contentfulExperts.intagram}
                 target="_blank"
                 rel="noreferrer"
               >
@@ -137,7 +137,7 @@ export const query = graphql`
         }
       }
       facebook
-      instagram
+      intagram
       mail
       nomDeLexpert
       slug
