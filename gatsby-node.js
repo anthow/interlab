@@ -4,6 +4,7 @@ exports.createPages = ({ actions, graphql }) => {
 	const { createPage } = actions;
   const entrepreneurTemplate = path.resolve(`src/templates/entrepreneur.js`);
   	const expertTemplate = path.resolve('./src/templates/expert.js');
+  	const coachTemplate = path.resolve('./src/templates/coach.js');
 
 	// page entrepreneur
 	const entrepreneur = graphql(`
@@ -23,7 +24,7 @@ exports.createPages = ({ actions, graphql }) => {
 			Promise.reject(result.errors);
 		}
 
-		// Create product pages
+		// Create entrepreneurs pages
 		result.data.allContentfulEntrepreneurs.edges.forEach(({ node }) => {
 			createPage({
         path: `entrepreneurs/${node.slug}`,				
@@ -34,7 +35,7 @@ exports.createPages = ({ actions, graphql }) => {
 			});
 		});
 	});
-
+//  page expert
 	const expert = graphql(`
     query {
         allContentfulExperts {
@@ -53,7 +54,7 @@ exports.createPages = ({ actions, graphql }) => {
 			Promise.reject(result.errors);
 		}
 
-		// Create atelier pages
+		// Create experts pages
 		result.data.allContentfulExperts.edges.forEach(({ node }) => {
 			createPage({
         path: `experts/${node.slug}`,
@@ -63,9 +64,37 @@ exports.createPages = ({ actions, graphql }) => {
 		});
 	});
 
+  //  page expert
+	const coach = graphql(`
+  query {
+      allContentfulCoachs {
+        edges {
+          node {
+            id
+            slug
+          }
+        }
+      }
+    }
+  
+    
+`).then(result => {
+  if (result.errors) {
+    Promise.reject(result.errors);
+  }
+
+  // Create experts pages
+  result.data.allContentfulCoachs.edges.forEach(({ node }) => {
+    createPage({
+      path: `coachs/${node.slug}`,
+      component: coachTemplate,
+      context: {slug: node.slug},
+    });
+  });
+});
 
 
 
 	// Return a Promise which would wait for both the queries to resolve
-	return Promise.all([entrepreneur, expert]);
+	return Promise.all([entrepreneur, expert, coach]);
 };
