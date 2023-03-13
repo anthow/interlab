@@ -73,7 +73,7 @@ const entrepreneurs = ({ data }) => (
 
 export const query = graphql`
   query {
-    allContentfulCoachs {
+    allContentfulCoachs (sort: {nomDeLexpert: ASC})  {
       edges {
         node {
           slug

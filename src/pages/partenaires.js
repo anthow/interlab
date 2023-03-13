@@ -47,7 +47,7 @@ const partenaires = ({ data }) => (
 
 export const query = graphql`
   query {
-    allContentfulPartenaires {
+    allContentfulPartenaires (sort: {nomPartenaire: ASC}) {
       edges {
         node {
           nomPartenaire

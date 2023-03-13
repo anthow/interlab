@@ -24,14 +24,14 @@ const entrepreneurs = ({ data }) => (
       </section>
       <article className="flex flex-col gap-5 md:gap-0 md:flex-row justify-between">
         <NavbarInterlab />
-        <section className="flex flex-row gap-2 ">
+        {/*}<section className="flex flex-row gap-2 ">
           <label className="text-white bg-orange-interra px-2 rounded" for="pet-select">Catégories:</label>
           <select name="pets" className="bg-white px-2 w-full border-orange-interra border-2 rounded" id="pet-select">
             <option value=""> toutes les catégories </option>
             <option value="dog">Food</option>
             <option value="cat">Textile</option>
           </select>
-        </section>
+        </section>{*/}
       </article>
 
       {/*} feed {*/}
@@ -60,7 +60,7 @@ const entrepreneurs = ({ data }) => (
                         >
                           <div class="">
                             <p class="text-lg text-center text-white ">
-                              par {node.nomDeLentrepreneur}
+                              {node.nomduprojet}
                             </p>
                           </div>
                         </div>
@@ -73,7 +73,7 @@ const entrepreneurs = ({ data }) => (
                   </div>
                 </section>
                 <h3 className="font-black text-lg text-center p-2 mb-5 text-orange-interra">
-                  {node.nomduprojet}
+                  {node.nomDeLentrepreneur}
                 </h3>
               </Link>
             </>
@@ -86,7 +86,10 @@ const entrepreneurs = ({ data }) => (
 
 export const query = graphql`
   query {
-    allContentfulEntrepreneurs {
+    allContentfulEntrepreneurs (
+      filter: {switch: {eq: true}}
+      sort: {nomDeLentrepreneur: ASC}
+    )  {
       edges {
         node {
           nomduprojet
