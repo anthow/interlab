@@ -4,6 +4,7 @@ import { graphql } from "gatsby"
 import Seo from "../components/seo"
 import { GatsbyImage } from "gatsby-plugin-image"
 import NavbarInterlab from "../components/navbar/interlab"
+import PhotosEntrepeneurs from "../components/interlab/homepage/photos-entrepeneurs"
 
 const Interlab = ({ data }) => (
   <Layout>
@@ -14,9 +15,9 @@ const Interlab = ({ data }) => (
   <h1 className="font-black text-4xl  text-orange-interra  bg-white text-center">{data.contentfulPageDaccueil.titre}</h1>
   <p className="  text-center px-3 m-auto paragraphe">{data.contentfulPageDaccueil.texteIntroduction.texteIntroduction}</p>
   <NavbarInterlab/>
-
+<PhotosEntrepeneurs />
   </section>
-  <article className="w-10/12  mt-10   m-auto">
+  <article className="w-12/12  m-auto">
                 <section className="flex flex-col md:flex-row mb-10 justify-center items-center m-auto  gap-x-10 gap-y-10 md:gap-y-20">
 
                     <figure className="">
